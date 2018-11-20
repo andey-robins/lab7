@@ -6,9 +6,11 @@
 //
 
 #include "Lab7-jtuttle5.h"
+#include "unixTimer.h"
 #include <cmath>
 #include <ctime>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -26,42 +28,91 @@ int main() {
 
     //demonstrations
     //demonstration of bubble sort working
-    cout << "Buble sort:" << endl;
-    vector<double> v = getNums(20, 1, 500);
-    printVector(v);
-    bubbleSort(v);
-    printVector(v);
-    cout << endl << endl;
+    //4 seconds = 31000
+    //double = 16.538 seconds
+    //quad = 68.536 seconds
+    // cout << "Buble sort:" << endl;
+    // Timer bubbleTime;
+    vector<double> v = getNums(124000, 1, 500);
+    // //printVector(v);
+    // bubbleTime.start();
+    // bubbleSort(v);
+    // bubbleTime.stop();
+    // //printVector(v);
+    // cout << endl << "Sorted in: " << bubbleTime() << endl << endl;
 
     //demonstration of insertion sort working
-    cout << "Insertion Sort:" << endl;
-    v = getNums(20, 1, 500);
-    printVector(v);
-    insertionSort(v);
-    printVector(v);
-    cout << endl << endl;
+    //4 seconds = 57000
+    //double = 16.294 seconds
+    //quad = 63.544 seconds
+    // cout << "Insertion Sort:" << endl;
+    // Timer insertionTime;
+    // v = getNums(228000, 1, 500);
+    // //printVector(v);
+    // insertionTime.start();
+    // insertionSort(v);
+    // insertionTime.stop();
+    // //printVector(v);
+    // cout << endl << "Sorted in: " << insertionTime() << endl << endl;
 
     //demonstration of selection sort working
-    cout << "Selection Sort:" << endl;
-    v = getNums(20, 1, 500);
-    printVector(v);
-    selectionSort(v);
-    printVector(v);
-    cout << endl << endl;
+    //4 seconds = 57000
+    //double = 16.282 seconds
+    //quad = 68.433 seconds
+    // cout << "Selection Sort:" << endl;
+    // Timer selectionTime;
+    // v = getNums(228000, 1, 500);
+    // //printVector(v);
+    // selectionTime.start();
+    // selectionSort(v);
+    // selectionTime.stop();
+    // //printVector(v);
+    // cout << endl << "Sorted in: " << selectionTime() << endl << endl;
 
     //merge sort
-    // cout << "Merge Sort:" << endl;
-    // v = getNums(20, 1, 500);
-    // printVector(v);
-    // mergeSort(v, 0, v.size());
-    // printVector(v);
+    //4 seconds = 230000
+    //double = 8.171
+    //quad = 16.649
+    cout << "Merge Sort:" << endl;
+    Timer mergeTime;
+    v = getNums(9200000, 1, 500);
+    //printVector(v);
+    mergeTime.start();
+    mergeSort(v, 0, v.size() - 1);
+    mergeTime.stop();
+    //printVector(v);
+    cout << endl << "Sorted in: " << mergeTime() << endl << endl;
 
     //demonstration of quicksort working
-    cout << "Quicksort:" << endl;
-    v = getNums(20, 1, 500);
-    printVector(v);
-    quickSort(v, 0, v.size());
-    printVector(v);
+    //4 seconds = 1400000
+    //double = 18.889 seconds
+    //quad = 62.150 seconds
+    // cout << "Quicksort:" << endl;
+    // Timer quickTime;
+    // v = getNums(5600000, 1, 500);
+    // //printVector(v);
+    // quickTime.start();
+    // quickSort(v, 0, v.size());
+    // quickTime.stop();
+    // //printVector(v);
+    // cout << endl << "Sorted in: " << quickTime() << endl << endl;
+
+    //demonstration of STL::sort
+    //4 seconds = 43000000
+    //double = 8.414 seconds
+    //quad = 17.704 seconds
+    // cout << "STL Sort:" << endl;
+    // Timer standardTime;
+    // v = getNums(172000000, 1, 500);
+    // //printVector(v);
+    // standardTime.start();
+    // sort(v.begin(), v.end());
+    // standardTime.stop();
+    // //printVector(v);
+    // cout << endl << "Sorted in: " << standardTime() << endl << endl;
+
+    //garbage collection; stops seg fault 11
+    v.clear();
 
 
     return 0;

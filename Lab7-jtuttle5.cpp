@@ -29,9 +29,9 @@ void merge(std::vector<double> & d, int left, int mid, int right) {
 
     //Copy data to temp arrays L[] and R[]
     for (i = 0; i < n1; i++)
-        l.push_back(left + i);
+        l.push_back(d[left + i]);
     for (j = 0; j < n2; j++)
-        r.push_back(mid + 1 + j);
+        r.push_back(d[mid + 1 + j]);
 
     // Merge the temp arrays back into d[left..right]
     i = 0; // Initial index of first subarray
@@ -128,7 +128,7 @@ void selectionSort(std::vector<double> & d) {
 //reference: https://www.geeksforgeeks.org/merge-sort/
 void mergeSort(std::vector<double> & d, int left, int right) {
     if (left < right) {
-        int middle = left + right / 2;
+        int middle = (left + right) / 2;
 
         //go partition and start recursive sorting
         mergeSort(d, left, middle);
