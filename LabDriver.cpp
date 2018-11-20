@@ -73,15 +73,15 @@ int main() {
     //4 seconds = 230000
     //double = 8.171
     //quad = 16.649
-    cout << "Merge Sort:" << endl;
-    Timer mergeTime;
-    v = getNums(9200000, 1, 500);
-    //printVector(v);
-    mergeTime.start();
-    mergeSort(v, 0, v.size() - 1);
-    mergeTime.stop();
-    //printVector(v);
-    cout << endl << "Sorted in: " << mergeTime() << endl << endl;
+    // cout << "Merge Sort:" << endl;
+    // Timer mergeTime;
+    // v = getNums(9200000, 1, 500);
+    // //printVector(v);
+    // mergeTime.start();
+    // mergeSort(v, 0, v.size() - 1);
+    // mergeTime.stop();
+    // //printVector(v);
+    // cout << endl << "Sorted in: " << mergeTime() << endl << endl;
 
     //demonstration of quicksort working
     //4 seconds = 1400000
